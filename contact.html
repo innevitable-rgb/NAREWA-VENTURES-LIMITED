@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
 ================================================== -->
   <meta charset="utf-8">
-  <title>Constra - Construction Html5 Template</title>
+  <title>Contact - Narewa Ventures Limited</title>
 
   <!-- Mobile Specific Metas
 ================================================== -->
@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <!-- Colorbox -->
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
+  <!-- Leaflet (OpenStreetMap) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
 
@@ -245,9 +247,10 @@
     </div><!-- 1st row end -->
 
     <div class="gap-60"></div>
-<!-- google maps api -->
+
+    <!-- Leaflet Map (OpenStreetMap, no API key required) -->
     <div class="google-map">
-      <div id="map" class="map" data-latitude="40.712776" data-longitude="-74.005974" data-marker="images/marker.png" data-marker-name="Constra"></div>
+      <div id="map" class="map"></div>
     </div>
 
     <div class="gap-40"></div>
@@ -295,7 +298,6 @@
   </div><!-- Conatiner end -->
 </section><!-- Main container end -->
 
-  x
 <!--footer section--->
 <footer id="footer" class="footer bg-overlay">
     <div class="footer-main">
@@ -361,7 +363,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="index.html#faq">Faq</a></li>
                 <li><a href="news-single.html">Blog</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="service-single.html">Pricing</a></li>
               </ul>
             </div>
           </div>
@@ -394,11 +396,25 @@
   <!-- shuffle -->
   <script src="plugins/shuffle/shuffle.min.js" defer></script>
 
+    <!-- Leaflet Map (OpenStreetMap via CARTO, requires free CARTO API key) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var officeCoords = [-1.286389, 36.817223]; // Nairobi placeholder — swap in exact office coordinates later
+      var cartoApiKey = "cb1_3xst_1_89a436521cbecc773cc493bc";
 
-  <!-- Google Map API Key-->
-  
-  <!-- Google Map Plugin-->
-  <script src="plugins/google-map/map.js" defer></script>
+      var map = L.map('map').setView(officeCoords, 15);
+
+      L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=' + cartoApiKey, {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        maxZoom: 19
+      }).addTo(map);
+
+      L.marker(officeCoords).addTo(map)
+        .bindPopup('Narewa Ventures Limited')
+        .openPopup();
+    });
+  </script>
 
   <!-- Template custom -->
   <script src="js/script.js"></script>

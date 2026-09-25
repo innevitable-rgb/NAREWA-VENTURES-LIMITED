@@ -1,5 +1,4 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -33,6 +32,8 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
+    <!-- Leaflet (OpenStreetMap) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 </head>
 <body>
@@ -218,41 +219,56 @@
         <p id="project-desc">Project description</p>
 
         <ul class="project-info list-unstyled">
-  <li>
-    <p class="project-info-label">Client</p>
-    <p class="project-info-content" id="project-client">Coming soon</p>
-  </li>
-  <li>
-    <p class="project-info-label">Architect</p>
-    <p class="project-info-content" id="project-architect">Coming soon</p>
-  </li>
-  <li>
-    <p class="project-info-label">Location</p>
-     <p class="project-info-content" id="project-location">Coming soon</p>
-  </li>
-  <li>
-    <p class="project-info-label">Size</p>
-    <p class="project-info-content" id="project-size">Coming soon</p>
-  </li>
-  <li>
-    <p class="project-info-label">Year Completed</p>
-    <p class="project-info-content" id="project-year">Coming soon</p>
-  </li>
-  <li>
-    <p class="project-info-label">Categories</p>
-    <p class="project-info-content" id="project-categories">Coming soon</p>
-  </li>
-<li>
-  <p class="project-link project-nav d-flex justify-content-between flex-wrap">
-    <button id="prev-project" class="btn btn-outline-primary" type="button">&laquo; Previous Project</button>
-    <button id="next-project" class="btn btn-primary" type="button">Next Project &raquo;</button>
-  </p>
-</li>
-</ul>
+          <li>
+            <p class="project-info-label">Client</p>
+            <p class="project-info-content" id="project-client">Coming soon</p>
+          </li>
+          <li>
+            <p class="project-info-label">Architect</p>
+            <p class="project-info-content" id="project-architect">Coming soon</p>
+          </li>
+          <li>
+            <p class="project-info-label">Location</p>
+             <p class="project-info-content" id="project-location">Coming soon</p>
+          </li>
+          <li>
+            <p class="project-info-label">Size</p>
+            <p class="project-info-content" id="project-size">Coming soon</p>
+          </li>
+          <li>
+            <p class="project-info-label">Year Completed</p>
+            <p class="project-info-content" id="project-year">Coming soon</p>
+          </li>
+          <li>
+            <p class="project-info-label">Categories</p>
+            <p class="project-info-content" id="project-categories">Coming soon</p>
+          </li>
+          <li>
+            <p class="project-link project-nav d-flex justify-content-between flex-wrap">
+              <button id="prev-project" class="btn btn-outline-primary" type="button">&laquo; Previous Project</button>
+              <button id="next-project" class="btn btn-primary" type="button">Next Project &raquo;</button>
+            </p>
+          </li>
+        </ul>
 
       </div><!-- Content col end -->
 
     </div><!-- Row end -->
+
+    <!---testimonials (global reference pool, auto-rotating)---->
+    <div class="row mt-5">
+      <div class="col-12 text-center mb-4">
+        <h3 class="section-sub-title">TESTIMONIALS</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div id="testimonial-slider" class="testimonial-slider">
+          <!-- slides injected by JS -->
+        </div>
+      </div>
+    </div>
 
   </div><!-- Conatiner end -->
 </section><!-- Main container end -->
@@ -324,7 +340,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="index.html#faq">Faq</a></li>
                 <li><a href="news-single.html">Blog</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="projects-single.html">Projects</a></li>
               </ul>
             </div>
           </div>
@@ -366,62 +382,98 @@
   <!-- Template custom -->
   <script src="js/script.js"></script>
 
-  <!-- Projects: single-page next/previous navigation -->
-<script>
-  var projects = [
-    { title: "Coming soon", desc: "Project description", images: ["images/projects/project5.jpg", "images/projects/project4.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" },
-    { title: "Coming soon", desc: "Project description", images: ["images/projects/project3.jpg", "images/projects/project2.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" },
-    { title: "Coming soon", desc: "Project description", images: ["images/projects/project1.jpg", "images/projects/project6.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" }
-  ];
-  var current = 0;
+  <!-- Projects: single-page next/previous navigation, plus global testimonials rotation -->
+  <script>
+    var projects = [
+      { title: "Coming soon", desc: "Project description", images: ["images/projects/project5.jpg", "images/projects/project4.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" },
+      { title: "Coming soon", desc: "Project description", images: ["images/projects/project3.jpg", "images/projects/project2.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" },
+      { title: "Coming soon", desc: "Project description", images: ["images/projects/project1.jpg", "images/projects/project6.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" }
+    ];
+    var current = 0;
 
+    var sliderOptions = {
+      fade: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      dots: false,
+      speed: 600,
+      arrows: true,
+      prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
+      nextArrow: '<button type="button" class="carousel-control right" aria-label="carousel-control"><i class="fas fa-chevron-right"></i></button>'
+    };
 
-  var sliderOptions = {
-    fade: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    dots: false,
-    speed: 600,
-    arrows: true,
-    prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
-    nextArrow: '<button type="button" class="carousel-control right" aria-label="carousel-control"><i class="fas fa-chevron-right"></i></button>'
-  };
-
-  function renderProject(index) {
-    var p = projects[index];
-    var $slider = $('#page-slider');
-    if ($slider.hasClass('slick-initialized')) {
-      $slider.slick('unslick');
+    function renderProject(index) {
+      var p = projects[index];
+      var $slider = $('#page-slider');
+      if ($slider.hasClass('slick-initialized')) {
+        $slider.slick('unslick');
+      }
+      $slider.empty();
+      p.images.forEach(function (src) {
+        $slider.append('<div class="item"><img loading="lazy" class="img-fluid" src="' + src + '" alt="project-image"></div>');
+      });
+      $slider.slick(sliderOptions);
+      document.getElementById('project-title').textContent = p.title;
+      document.getElementById('project-desc').textContent = p.desc;
+      document.getElementById('project-client').textContent = p.client;
+      document.getElementById('project-architect').textContent = p.architect;
+      document.getElementById('project-location').textContent = p.location;
+      document.getElementById('project-size').textContent = p.size;
+      document.getElementById('project-year').textContent = p.year;
+      document.getElementById('project-categories').textContent = p.categories;
+      current = index;
     }
-    $slider.empty();
-    p.images.forEach(function (src) {
-      $slider.append('<div class="item"><img loading="lazy" class="img-fluid" src="' + src + '" alt="project-image"></div>');
-    });
-    $slider.slick(sliderOptions);
-    document.getElementById('project-title').textContent = p.title;
-    document.getElementById('project-desc').textContent = p.desc;
-    document.getElementById('project-client').textContent = p.client;
-    document.getElementById('project-architect').textContent = p.architect;
-    document.getElementById('project-location').textContent = p.location;
-    document.getElementById('project-size').textContent = p.size;
-    document.getElementById('project-year').textContent = p.year;
-    document.getElementById('project-categories').textContent = p.categories;
-    current = index;
-  }
 
-  $(document).ready(function () {
-    $('#next-project').on('click', function () {
-      renderProject((current + 1) % projects.length);
-    });
-    $('#prev-project').on('click', function () {
-      renderProject((current - 1 + projects.length) % projects.length);
-    });
-  });
+    var testimonials = [
+      { quote: "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.", author: "Gabriel Denis", role: "Chairman, Okt Industries", image: "images/clients/testimonial1.png" },
+      { quote: "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.", author: "Weldon Cash", role: "CEO, First Choice Group", image: "images/clients/testimonial2.png" },
+      { quote: "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.", author: "Hyram Izzy", role: "Director, AKT Group", image: "images/clients/testimonial3.png" }
+    ];
 
-</script>
-</div> <!--body inner end-->
-</body>
+    var testimonialSliderOptions = {
+      fade: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      dots: true,
+      arrows: false,
+      speed: 600
+    };
 
+    function initTestimonialSlider() {
+      var $slider = $('#testimonial-slider');
+      testimonials.forEach(function (t) {
+        $slider.append(
+          '<div class="quote-item quote-border">' +
+            '<div class="quote-text-border">' + t.quote + '</div>' +
+            '<div class="quote-item-footer">' +
+              '<img loading="lazy" class="testimonial-thumb" src="' + t.image + '" alt="testimonial">' +
+              '<div class="quote-item-info">' +
+                '<h3 class="quote-author">' + t.author + '</h3>' +
+                '<span class="quote-subtext">' + t.role + '</span>' +
+              '</div>' +
+            '</div>' +
+          '</div>'
+        );
+      });
+      $slider.slick(testimonialSliderOptions);
+    }
+
+    $(document).ready(function () {
+      initTestimonialSlider();
+
+      $('#next-project').on('click', function () {
+        renderProject((current + 1) % projects.length);
+      });
+      $('#prev-project').on('click', function () {
+        renderProject((current - 1 + projects.length) % projects.length);
+      });
+    });
+  </script>
+
+  </div><!-- Body inner end -->
+  </body>
 
   </html>

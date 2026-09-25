@@ -1,8 +1,5 @@
 /*!------------------------------------------------------------------
 [MAIN STYLESHEET]
-
-Template Name: Constra - Construction Html5 Template
-Description: Constra - Construction Html5 Template
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [TABLE OF CONTENTS]
@@ -2272,6 +2269,24 @@ img.testimonial-thumb {
     margin-left: 0;
   }
 }
+
+
+/* image inline with text */
+#testimonial-slider .quote-item-footer {
+  float: none;
+  text-align: center;
+}
+
+#testimonial-slider .quote-item-footer img.testimonial-thumb {
+  float: none;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+#testimonial-slider .quote-item-info {
+  display: block;
+}
+
 
 /* Testimonial Border */
 .quote-item.quote-border .quote-text-border {
