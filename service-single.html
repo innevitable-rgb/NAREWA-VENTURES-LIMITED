@@ -47,7 +47,7 @@
                 </ul>
               </div>
               <!--/ Top info end -->
-  
+
               <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                 <ul class="list-unstyled">
                     <li>
@@ -138,20 +138,12 @@
                         <a href="projects-single.html" class="nav-link">Projects</a>
                       </li>
 
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="service-single.html">Services</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                          </ul>
+                      <li class="nav-item active">
+                          <a href="service-single.html" class="nav-link">Services</a>
                       </li>
 
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">News <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="news-single.html">News</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                          </ul>
+                      <li class="nav-item">
+                          <a href="news-single.html" class="nav-link">Blog</a>
                       </li>
 
                       <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -186,11 +178,11 @@
         <div class="row">
           <div class="col-lg-12">
               <div class="banner-heading">
-                <h1 class="banner-title">Service</h1>
+                <h1 class="banner-title">Services</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
                       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Service Single</li>
+                      <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-service-name">Home Construction</li>
                     </ol>
                 </nav>
               </div>
@@ -198,7 +190,7 @@
         </div><!-- Row end -->
     </div><!-- Container end -->
   </div><!-- Banner text end -->
-</div><!-- Banner area end --> 
+</div><!-- Banner area end -->
 
 <section id="main-container" class="main-container">
   <div class="container">
@@ -208,27 +200,22 @@
         <div class="sidebar sidebar-left">
           <div class="widget">
             <h3 class="widget-title">Solutions</h3>
-            <ul class="nav service-menu">
-              <li><a href="service-single.html">Home Construction</a></li>
-              <li class="active"><a href="service-single.html">Building Remodels</a></li>
-              <li><a href="#">Interior Design</a></li>
-              <li><a href="#">Exterior Design</a></li>
-              <li><a href="#">Renovation</a></li>
-              <li><a href="#">Safety Management</a></li>
+            <ul class="nav service-menu" id="service-menu">
+              <!-- populated by JS from the services data array -->
             </ul>
           </div><!-- Widget end -->
-<!-- these widgets require each to have a page on its own -->
+
           <div class="widget">
             <div class="quote-item quote-border">
-              <div class="quote-text-border">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+              <div class="quote-text-border" id="service-quote-text">
+                <!-- populated by JS, specific to the active service -->
               </div>
 
               <div class="quote-item-footer">
                 <img loading="lazy" class="testimonial-thumb" src="images/clients/testimonial1.png" alt="testimonial">
                 <div class="quote-item-info">
-                  <h3 class="quote-author">Weldon Cash</h3>
-                  <span class="quote-subtext">CEO, First Choice Group</span>
+                  <h3 class="quote-author" id="service-quote-author"></h3>
+                  <span class="quote-subtext" id="service-quote-subtext"></span>
                 </div>
               </div>
             </div><!-- Quote item end -->
@@ -238,153 +225,17 @@
         </div><!-- Sidebar end -->
       </div><!-- Sidebar Col end -->
 
-      <!--building remodels information-->
+      <!-- active service content, rendered/swapped by JS -->
       <div class="col-xl-8 col-lg-8">
-        <div class="content-inner-page">
-
-          <h2 class="column-title mrt-0">Building Remodels</h2>
-
-          <div class="row">
-            <div class="col-md-12">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget risus
-                sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a, sagittis accumsan
-                ipsum. Pellentesque ultrices ultrices sapien.</p>
-              <p>Nam scelerisque tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. , nec
-                tincidunt nunc posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo
-                iaculis ligula, ac dapibus quam ornare ut. Praesent ac hendrerit sem, et tempus sem</p>
-            </div><!-- col end -->
-          </div><!-- 1st row end-->
-
-          <div class="gap-40"></div>
-
-          <div id="page-slider" class="page-slider">
-            <div class="item">
-              <img loading="lazy" class="img-fluid" src="images/projects/project1.jpg" alt="project-slider-image" />
-            </div>
-
-            <div class="item">
-              <img loading="lazy" class="img-fluid" src="images/projects/project2.jpg" alt="project-slider-image" />
-            </div>
-          </div><!-- Page slider end -->
-
-          <div class="gap-40"></div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <h3 class="column-title-small">What Makes Us Different</h3>
-
-              <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Consectetur adipiscing elit. Integer adipiscing erat eget risus sollicitudin pellentesque et non erat
-                tincidunt nunc posuere.</p>
-              <ul class="list-arrow">
-                <li>Partnership Strategy tristique eleifend.</li>
-                <li>Opporutnity to work with amet elit a.</li>
-                <li>Saving Time to Deal with commodo iaculis.</li>
-                <li>Leadership skills to manage erat volutpat.</li>
-                <li>Cut cost without sacrificing dolore magna.</li>
-                <li>Automate your business elis tristique.</li>
-              </ul>
-            </div>
-
-            <div class="col-md-6 mt-5 mt-md-0">
-              <h3 class="column-title-small">You Should Know</h3>
-
-              <div class="accordion accordion-group accordion-classic" id="construction-accordion">
-                <div class="card">
-                  <div class="card-header p-0 bg-transparent" id="headingOne">
-                    <h2 class="mb-0">
-                      <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Does the law require head protection on construction sites?
-                      </button>
-                    </h2>
-                  </div>
-
-                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                    data-parent="#construction-accordion">
-                    <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                      wolf
-                      moon officia aute, non cupidata
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header p-0 bg-transparent" id="headingTwo">
-                    <h2 class="mb-0">
-                      <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        What are the first aid requirements for sites?
-                      </button>
-                    </h2>
-                  </div>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                    data-parent="#construction-accordion">
-                    <div class="card-body">
-                      Anemi nim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo
-                      consequat.
-                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                      pariatur.
-                      Excepteur sint occaecat cupid henderit in voluptate velit esse cillu oris nisi ut aliquip ex ea
-                      com
-                      matat.
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header p-0 bg-transparent" id="headingThree">
-                    <h2 class="mb-0">
-                      <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        What is an appointed person?
-                      </button>
-                    </h2>
-                  </div>
-                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                    data-parent="#construction-accordion">
-                    <div class="card-body">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                      the
-                      industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                      and
-                      scrambled it to make a type specimen book.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--/ Accordion end -->
-            </div>
-          </div>
-          <!--2nd row end -->
-
-          <div class="gap-40"></div>
-
-          <div class="call-to-action classic">
-            <div class="row align-items-center">
-              <div class="col-md-8 text-center text-md-left">
-                <div class="call-to-action-text">
-                  <h3 class="action-title">Interested with this service.</h3>
-                </div>
-              </div><!-- Col end -->
-              <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
-                <div class="call-to-action-btn">
-                  <a class="btn btn-primary" href="#">Get a Quote</a>
-                </div>
-              </div><!-- col end -->
-            </div><!-- row end -->
-          </div><!-- Action end -->
-
+        <div class="content-inner-page" id="service-content">
+          <!-- populated by JS from the services data array -->
         </div><!-- Content inner end -->
       </div><!-- Content Col end -->
-
 
     </div><!-- Main row end -->
   </div><!-- Conatiner end -->
 </section><!-- Main container end -->
 
-<!--footer section--->
-  
 <!--footer section--->
 <footer id="footer" class="footer bg-overlay">
     <div class="footer-main">
@@ -485,12 +336,372 @@
 
 
   <!-- Google Map API Key-->
-  
+
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
+
+  <!-- Services single-page (JS-driven, no reload) -->
+  <script>
+  (function ($) {
+    "use strict";
+
+    // ---- Services data -----------------------------------------------
+    // Placeholder content only. Replace title/intro/list/faq/pricing text
+    // once real service copy is ready — structure stays the same.
+    var services = [
+      {
+        title: "Home Construction",
+        images: ["images/projects/project1.jpg", "images/projects/project2.jpg"],
+        intro: [
+          "[PLACEHOLDER — intro paragraph 1 for Home Construction]",
+          "[PLACEHOLDER — intro paragraph 2 for Home Construction]"
+        ],
+        differentIntro: "[PLACEHOLDER — short intro line for the 'What Makes Us Different' list]",
+        differentList: [
+          "[PLACEHOLDER — differentiator 1]",
+          "[PLACEHOLDER — differentiator 2]",
+          "[PLACEHOLDER — differentiator 3]",
+          "[PLACEHOLDER — differentiator 4]",
+          "[PLACEHOLDER — differentiator 5]",
+          "[PLACEHOLDER — differentiator 6]"
+        ],
+        pricing: {
+          startingFrom: "[PLACEHOLDER — e.g. KES 000,000]",
+          includes: [
+            "[PLACEHOLDER — what's included 1]",
+            "[PLACEHOLDER — what's included 2]",
+            "[PLACEHOLDER — what's included 3]"
+          ]
+        },
+        faq: [
+          { q: "[PLACEHOLDER — FAQ question about Home Construction 1]", a: "[PLACEHOLDER — FAQ answer 1]" },
+          { q: "[PLACEHOLDER — FAQ question about Home Construction 2]", a: "[PLACEHOLDER — FAQ answer 2]" },
+          { q: "[PLACEHOLDER — FAQ question about Home Construction 3]", a: "[PLACEHOLDER — FAQ answer 3]" }
+        ],
+        quote: {
+          text: "[PLACEHOLDER — client quote specific to Home Construction]",
+          author: "[PLACEHOLDER — Client Name]",
+          subtext: "[PLACEHOLDER — Title, Company]"
+        }
+      },
+      {
+        title: "Building Remodels",
+        images: ["images/projects/project1.jpg", "images/projects/project2.jpg"],
+        intro: [
+          "[PLACEHOLDER — intro paragraph 1 for Building Remodels]",
+          "[PLACEHOLDER — intro paragraph 2 for Building Remodels]"
+        ],
+        differentIntro: "[PLACEHOLDER — short intro line for the 'What Makes Us Different' list]",
+        differentList: [
+          "[PLACEHOLDER — differentiator 1]",
+          "[PLACEHOLDER — differentiator 2]",
+          "[PLACEHOLDER — differentiator 3]",
+          "[PLACEHOLDER — differentiator 4]",
+          "[PLACEHOLDER — differentiator 5]",
+          "[PLACEHOLDER — differentiator 6]"
+        ],
+        pricing: {
+          startingFrom: "[PLACEHOLDER — e.g. KES 000,000]",
+          includes: [
+            "[PLACEHOLDER — what's included 1]",
+            "[PLACEHOLDER — what's included 2]",
+            "[PLACEHOLDER — what's included 3]"
+          ]
+        },
+        faq: [
+          { q: "[PLACEHOLDER — FAQ question about Building Remodels 1]", a: "[PLACEHOLDER — FAQ answer 1]" },
+          { q: "[PLACEHOLDER — FAQ question about Building Remodels 2]", a: "[PLACEHOLDER — FAQ answer 2]" },
+          { q: "[PLACEHOLDER — FAQ question about Building Remodels 3]", a: "[PLACEHOLDER — FAQ answer 3]" }
+        ],
+        quote: {
+          text: "[PLACEHOLDER — client quote specific to Building Remodels]",
+          author: "[PLACEHOLDER — Client Name]",
+          subtext: "[PLACEHOLDER — Title, Company]"
+        }
+      },
+      {
+        title: "Interior Design",
+        images: ["images/projects/project1.jpg", "images/projects/project2.jpg"],
+        intro: [
+          "[PLACEHOLDER — intro paragraph 1 for Interior Design]",
+          "[PLACEHOLDER — intro paragraph 2 for Interior Design]"
+        ],
+        differentIntro: "[PLACEHOLDER — short intro line for the 'What Makes Us Different' list]",
+        differentList: [
+          "[PLACEHOLDER — differentiator 1]",
+          "[PLACEHOLDER — differentiator 2]",
+          "[PLACEHOLDER — differentiator 3]",
+          "[PLACEHOLDER — differentiator 4]",
+          "[PLACEHOLDER — differentiator 5]",
+          "[PLACEHOLDER — differentiator 6]"
+        ],
+        pricing: {
+          startingFrom: "[PLACEHOLDER — e.g. KES 000,000]",
+          includes: [
+            "[PLACEHOLDER — what's included 1]",
+            "[PLACEHOLDER — what's included 2]",
+            "[PLACEHOLDER — what's included 3]"
+          ]
+        },
+        faq: [
+          { q: "[PLACEHOLDER — FAQ question about Interior Design 1]", a: "[PLACEHOLDER — FAQ answer 1]" },
+          { q: "[PLACEHOLDER — FAQ question about Interior Design 2]", a: "[PLACEHOLDER — FAQ answer 2]" },
+          { q: "[PLACEHOLDER — FAQ question about Interior Design 3]", a: "[PLACEHOLDER — FAQ answer 3]" }
+        ],
+        quote: {
+          text: "[PLACEHOLDER — client quote specific to Interior Design]",
+          author: "[PLACEHOLDER — Client Name]",
+          subtext: "[PLACEHOLDER — Title, Company]"
+        }
+      },
+      {
+        title: "Exterior Design",
+        images: ["images/projects/project1.jpg", "images/projects/project2.jpg"],
+        intro: [
+          "[PLACEHOLDER — intro paragraph 1 for Exterior Design]",
+          "[PLACEHOLDER — intro paragraph 2 for Exterior Design]"
+        ],
+        differentIntro: "[PLACEHOLDER — short intro line for the 'What Makes Us Different' list]",
+        differentList: [
+          "[PLACEHOLDER — differentiator 1]",
+          "[PLACEHOLDER — differentiator 2]",
+          "[PLACEHOLDER — differentiator 3]",
+          "[PLACEHOLDER — differentiator 4]",
+          "[PLACEHOLDER — differentiator 5]",
+          "[PLACEHOLDER — differentiator 6]"
+        ],
+        pricing: {
+          startingFrom: "[PLACEHOLDER — e.g. KES 000,000]",
+          includes: [
+            "[PLACEHOLDER — what's included 1]",
+            "[PLACEHOLDER — what's included 2]",
+            "[PLACEHOLDER — what's included 3]"
+          ]
+        },
+        faq: [
+          { q: "[PLACEHOLDER — FAQ question about Exterior Design 1]", a: "[PLACEHOLDER — FAQ answer 1]" },
+          { q: "[PLACEHOLDER — FAQ question about Exterior Design 2]", a: "[PLACEHOLDER — FAQ answer 2]" },
+          { q: "[PLACEHOLDER — FAQ question about Exterior Design 3]", a: "[PLACEHOLDER — FAQ answer 3]" }
+        ],
+        quote: {
+          text: "[PLACEHOLDER — client quote specific to Exterior Design]",
+          author: "[PLACEHOLDER — Client Name]",
+          subtext: "[PLACEHOLDER — Title, Company]"
+        }
+      },
+      {
+        title: "Renovation",
+        images: ["images/projects/project1.jpg", "images/projects/project2.jpg"],
+        intro: [
+          "[PLACEHOLDER — intro paragraph 1 for Renovation]",
+          "[PLACEHOLDER — intro paragraph 2 for Renovation]"
+        ],
+        differentIntro: "[PLACEHOLDER — short intro line for the 'What Makes Us Different' list]",
+        differentList: [
+          "[PLACEHOLDER — differentiator 1]",
+          "[PLACEHOLDER — differentiator 2]",
+          "[PLACEHOLDER — differentiator 3]",
+          "[PLACEHOLDER — differentiator 4]",
+          "[PLACEHOLDER — differentiator 5]",
+          "[PLACEHOLDER — differentiator 6]"
+        ],
+        pricing: {
+          startingFrom: "[PLACEHOLDER — e.g. KES 000,000]",
+          includes: [
+            "[PLACEHOLDER — what's included 1]",
+            "[PLACEHOLDER — what's included 2]",
+            "[PLACEHOLDER — what's included 3]"
+          ]
+        },
+        faq: [
+          { q: "[PLACEHOLDER — FAQ question about Renovation 1]", a: "[PLACEHOLDER — FAQ answer 1]" },
+          { q: "[PLACEHOLDER — FAQ question about Renovation 2]", a: "[PLACEHOLDER — FAQ answer 2]" },
+          { q: "[PLACEHOLDER — FAQ question about Renovation 3]", a: "[PLACEHOLDER — FAQ answer 3]" }
+        ],
+        quote: {
+          text: "[PLACEHOLDER — client quote specific to Renovation]",
+          author: "[PLACEHOLDER — Client Name]",
+          subtext: "[PLACEHOLDER — Title, Company]"
+        }
+      },
+      {
+        title: "Safety Management",
+        images: ["images/projects/project1.jpg", "images/projects/project2.jpg"],
+        intro: [
+          "[PLACEHOLDER — intro paragraph 1 for Safety Management]",
+          "[PLACEHOLDER — intro paragraph 2 for Safety Management]"
+        ],
+        differentIntro: "[PLACEHOLDER — short intro line for the 'What Makes Us Different' list]",
+        differentList: [
+          "[PLACEHOLDER — differentiator 1]",
+          "[PLACEHOLDER — differentiator 2]",
+          "[PLACEHOLDER — differentiator 3]",
+          "[PLACEHOLDER — differentiator 4]",
+          "[PLACEHOLDER — differentiator 5]",
+          "[PLACEHOLDER — differentiator 6]"
+        ],
+        pricing: {
+          startingFrom: "[PLACEHOLDER — e.g. KES 000,000]",
+          includes: [
+            "[PLACEHOLDER — what's included 1]",
+            "[PLACEHOLDER — what's included 2]",
+            "[PLACEHOLDER — what's included 3]"
+          ]
+        },
+        faq: [
+          { q: "[PLACEHOLDER — FAQ question about Safety Management 1]", a: "[PLACEHOLDER — FAQ answer 1]" },
+          { q: "[PLACEHOLDER — FAQ question about Safety Management 2]", a: "[PLACEHOLDER — FAQ answer 2]" },
+          { q: "[PLACEHOLDER — FAQ question about Safety Management 3]", a: "[PLACEHOLDER — FAQ answer 3]" }
+        ],
+        quote: {
+          text: "[PLACEHOLDER — client quote specific to Safety Management]",
+          author: "[PLACEHOLDER — Client Name]",
+          subtext: "[PLACEHOLDER — Title, Company]"
+        }
+      }
+    ];
+
+    var $menu = $("#service-menu");
+    var $content = $("#service-content");
+    var $breadcrumb = $("#breadcrumb-service-name");
+    var $quoteText = $("#service-quote-text");
+    var $quoteAuthor = $("#service-quote-author");
+    var $quoteSubtext = $("#service-quote-subtext");
+    var currentIndex = 0;
+
+    // ---- Build the sidebar menu once ----------------------------------
+    function renderMenu() {
+      var html = "";
+      services.forEach(function (s, i) {
+        html += '<li class="' + (i === currentIndex ? "active" : "") + '">' +
+                  '<a href="#" data-index="' + i + '">' + s.title + "</a>" +
+                "</li>";
+      });
+      $menu.html(html);
+    }
+
+    // ---- Build one service's main content ------------------------------
+    function renderService(index) {
+      currentIndex = index;
+      var s = services[index];
+
+      // active state in sidebar
+      $menu.find("li").removeClass("active");
+      $menu.find('a[data-index="' + index + '"]').parent("li").addClass("active");
+      $breadcrumb.text(s.title);
+
+      // side quote widget — specific to this service, not global
+      $quoteText.text(s.quote.text);
+      $quoteAuthor.text(s.quote.author);
+      $quoteSubtext.text(s.quote.subtext);
+
+      var introHtml = s.intro.map(function (p) {
+        return "<p>" + p + "</p>";
+      }).join("");
+
+      var slidesHtml = s.images.map(function (src) {
+        return '<div class="item"><img loading="lazy" class="img-fluid" src="' + src + '" alt="' + s.title + ' project image" /></div>';
+      }).join("");
+
+      var listHtml = s.differentList.map(function (item) {
+        return "<li>" + item + "</li>";
+      }).join("");
+
+      var pricingIncludesHtml = s.pricing.includes.map(function (item) {
+        return "<li>" + item + "</li>";
+      }).join("");
+
+      // Pricing sits directly under the "What Makes Us Different" list,
+      // inside the same left column — last thing in that column.
+      var pricingHtml =
+        '<div class="pricing-inline mt-4">' +
+          '<h3 class="column-title-small">Pricing</h3>' +
+          '<p class="pricing-starting-from"><strong>Starting from ' + s.pricing.startingFrom + "</strong></p>" +
+          '<ul class="list-arrow">' + pricingIncludesHtml + "</ul>" +
+        "</div>";
+
+      var faqHtml = s.faq.map(function (item, i) {
+        var isFirst = i === 0;
+        return (
+          '<div class="card">' +
+            '<div class="card-header p-0 bg-transparent" id="heading-' + i + '">' +
+              '<h2 class="mb-0">' +
+                '<button class="btn btn-block text-left' + (isFirst ? "" : " collapsed") + '" type="button" data-toggle="collapse" data-target="#collapse-' + i + '" aria-expanded="' + (isFirst ? "true" : "false") + '" aria-controls="collapse-' + i + '">' +
+                  item.q +
+                "</button>" +
+              "</h2>" +
+            "</div>" +
+            '<div id="collapse-' + i + '" class="collapse' + (isFirst ? " show" : "") + '" aria-labelledby="heading-' + i + '" data-parent="#service-accordion">' +
+              '<div class="card-body">' + item.a + "</div>" +
+            "</div>" +
+          "</div>"
+        );
+      }).join("");
+
+      var html =
+        '<h2 class="column-title mrt-0">' + s.title + "</h2>" +
+        '<div class="row"><div class="col-md-12">' + introHtml + "</div></div>" +
+        '<div class="gap-40"></div>' +
+        '<div id="page-slider" class="page-slider">' + slidesHtml + "</div>" +
+        '<div class="gap-40"></div>' +
+        '<div class="row">' +
+          '<div class="col-md-6">' +
+            '<h3 class="column-title-small">What Makes Us Different</h3>' +
+            "<p>" + s.differentIntro + "</p>" +
+            '<ul class="list-arrow">' + listHtml + "</ul>" +
+            pricingHtml +
+          "</div>" +
+          '<div class="col-md-6 mt-5 mt-md-0">' +
+            '<h3 class="column-title-small">You Should Know</h3>' +
+            '<div class="accordion accordion-group accordion-classic" id="service-accordion">' + faqHtml + "</div>" +
+          "</div>" +
+        "</div>" +
+        '<div class="gap-40"></div>' +
+        '<div class="call-to-action classic">' +
+          '<div class="row align-items-center">' +
+            '<div class="col-md-8 text-center text-md-left"><div class="call-to-action-text"><h3 class="action-title">Interested with this service.</h3></div></div>' +
+            '<div class="col-md-4 text-center text-md-right mt-3 mt-md-0"><div class="call-to-action-btn"><a class="btn btn-primary" href="contact.html">Get a Quote</a></div></div>' +
+          "</div>" +
+        "</div>";
+
+      $content.html(html);
+
+      // Re-init the slider against the freshly injected markup.
+      // NOTE: if js/script.js also auto-inits ".page-slider" globally on
+      // document ready, remove/scope that init so it doesn't double-fire
+      // against this dynamically swapped slider.
+      var $slider = $("#page-slider");
+      if ($slider.hasClass("slick-initialized")) {
+        $slider.slick("unslick");
+      }
+      $slider.slick({
+        dots: true,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true
+      });
+    }
+
+    // ---- Wire up clicks -------------------------------------------------
+    $menu.on("click", "a", function (e) {
+      e.preventDefault();
+      var index = parseInt($(this).data("index"), 10);
+      if (index !== currentIndex) {
+        renderService(index);
+      }
+    });
+
+    renderMenu();
+    renderService(0);
+
+  })(jQuery);
+  </script>
 
   </div><!-- Body inner end -->
   </body>

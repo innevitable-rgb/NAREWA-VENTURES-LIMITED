@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -138,20 +139,12 @@
                         <a href="projects-single.html" class="nav-link">Projects</a>
                       </li>
 
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="service-single.html">Services</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                          </ul>
+                      <li class="nav-item">
+                          <a href="service-single.html" class="nav-link">Services</a>
                       </li>
 
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">News <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="news-single.html">News</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                          </ul>
+                      <li class="nav-item">
+                          <a href="news-single.html" class="nav-link">Blog</a>
                       </li>
 
                       <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -205,8 +198,7 @@
 <section id="main-container" class="main-container">
   <div class="container">
 
-    <!---project details---->
-    <!----project one--->
+    <!---project details (single-page, JS-driven next/previous)---->
     <div class="row">
       <div class="col-lg-8">
         <div id="page-slider" class="page-slider small-bg">
@@ -222,40 +214,41 @@
 
       <div class="col-lg-4 mt-5 mt-lg-0">
 
-        <h3 class="column-title mrt-0">Coming soon</h3>
-        <p>Project description</p>
+        <h3 class="column-title mrt-0" id="project-title">Coming soon</h3>
+        <p id="project-desc">Project description</p>
 
         <ul class="project-info list-unstyled">
-          <li>
-            <p class="project-info-label">Client</p>
-            <p class="project-info-content">Coming soon</p>
-          </li>
-          <li>
-            <p class="project-info-label">Architect</p>
-            <p class="project-info-content">Coming soon</p>
-          </li>
-          <li>
-            <p class="project-info-label">Location</p>
-             <p class="project-info-content">Coming soon</p>
-          </li>
-          <li>
-            <p class="project-info-label">Size</p>
-            <p class="project-info-content">Coming soon</p>
-          </li>
-          <li>
-            <p class="project-info-label">Year Completed</p>
-            <p class="project-info-content">Coming soon</p>
-          </li>
-          <li>
-            <p class="project-info-label">Categories</p>
-            <p class="project-info-content">Coming soon</p>
-          </li>
-          <li>
-            <p class="project-link">
-              <a class="btn btn-primary" target="_blank" href="#">View More ProjectS</a>
-            </p>
-          </li>
-        </ul>
+  <li>
+    <p class="project-info-label">Client</p>
+    <p class="project-info-content" id="project-client">Coming soon</p>
+  </li>
+  <li>
+    <p class="project-info-label">Architect</p>
+    <p class="project-info-content" id="project-architect">Coming soon</p>
+  </li>
+  <li>
+    <p class="project-info-label">Location</p>
+     <p class="project-info-content" id="project-location">Coming soon</p>
+  </li>
+  <li>
+    <p class="project-info-label">Size</p>
+    <p class="project-info-content" id="project-size">Coming soon</p>
+  </li>
+  <li>
+    <p class="project-info-label">Year Completed</p>
+    <p class="project-info-content" id="project-year">Coming soon</p>
+  </li>
+  <li>
+    <p class="project-info-label">Categories</p>
+    <p class="project-info-content" id="project-categories">Coming soon</p>
+  </li>
+<li>
+  <p class="project-link project-nav d-flex justify-content-between flex-wrap">
+    <button id="prev-project" class="btn btn-outline-primary" type="button">&laquo; Previous Project</button>
+    <button id="next-project" class="btn btn-primary" type="button">Next Project &raquo;</button>
+  </p>
+</li>
+</ul>
 
       </div><!-- Content col end -->
 
@@ -373,8 +366,62 @@
   <!-- Template custom -->
   <script src="js/script.js"></script>
 
-  </div><!-- Body inner end -->
-  </body>
+  <!-- Projects: single-page next/previous navigation -->
+<script>
+  var projects = [
+    { title: "Coming soon", desc: "Project description", images: ["images/projects/project5.jpg", "images/projects/project4.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" },
+    { title: "Coming soon", desc: "Project description", images: ["images/projects/project3.jpg", "images/projects/project2.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" },
+    { title: "Coming soon", desc: "Project description", images: ["images/projects/project1.jpg", "images/projects/project6.jpg"], client: "Coming soon", architect: "Coming soon", location: "Coming soon", size: "Coming soon", year: "Coming soon", categories: "Coming soon" }
+  ];
+  var current = 0;
+
+
+  var sliderOptions = {
+    fade: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    dots: false,
+    speed: 600,
+    arrows: true,
+    prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow: '<button type="button" class="carousel-control right" aria-label="carousel-control"><i class="fas fa-chevron-right"></i></button>'
+  };
+
+  function renderProject(index) {
+    var p = projects[index];
+    var $slider = $('#page-slider');
+    if ($slider.hasClass('slick-initialized')) {
+      $slider.slick('unslick');
+    }
+    $slider.empty();
+    p.images.forEach(function (src) {
+      $slider.append('<div class="item"><img loading="lazy" class="img-fluid" src="' + src + '" alt="project-image"></div>');
+    });
+    $slider.slick(sliderOptions);
+    document.getElementById('project-title').textContent = p.title;
+    document.getElementById('project-desc').textContent = p.desc;
+    document.getElementById('project-client').textContent = p.client;
+    document.getElementById('project-architect').textContent = p.architect;
+    document.getElementById('project-location').textContent = p.location;
+    document.getElementById('project-size').textContent = p.size;
+    document.getElementById('project-year').textContent = p.year;
+    document.getElementById('project-categories').textContent = p.categories;
+    current = index;
+  }
+
+  $(document).ready(function () {
+    $('#next-project').on('click', function () {
+      renderProject((current + 1) % projects.length);
+    });
+    $('#prev-project').on('click', function () {
+      renderProject((current - 1 + projects.length) % projects.length);
+    });
+  });
+
+</script>
+</div> <!--body inner end-->
+</body>
+
 
   </html>
-  
