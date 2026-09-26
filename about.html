@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -10,7 +11,7 @@
   <!-- Mobile Specific Metas
 ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Construction Html5 Template">
+  <meta name="description" content="Narewa Ventures Limited">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
   <!-- Favicon
@@ -32,8 +33,6 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
-    <!-- Leaflet (OpenStreetMap) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 </head>
 <body>
@@ -410,8 +409,25 @@
   <!-- Template custom -->
   <script src="js/script.js"></script>
 
+  <!-- Team carousel: auto-rotating, fade, dots, no arrows (matches Testimonials pattern on Projects) -->
+  <script>
+    $(document).ready(function(){
+      $('#team-slide').slick('unslick');
+      $('#team-slide').slick({
+        dots: true,
+        arrows: false,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        speed: 600,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true
+      });
+    });
+  </script>
+
   </div><!-- Body inner end -->
   </body>
 
   </html>
-  
