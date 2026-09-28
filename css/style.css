@@ -2521,3 +2521,10 @@ label {
   margin-top: 30px;
   font-weight: 700;
 }
+
+/* Maps styling
+===================================================== */
+#map {
+  height: 400px;
+  width: 100%;
+}
